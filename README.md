@@ -1,5 +1,7 @@
 # blockfrost-yoroi-bridge
 
+The calls documented at https://github.com/Emurgo/yoroi-graphql-migration-backend/
+
 - [ ] txs/utxoForAddresses
  - Data from `addresses/utxo`
 - [ ] account/registrationHistory
