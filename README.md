@@ -4,7 +4,8 @@ The calls documented at https://github.com/Emurgo/yoroi-graphql-migration-backen
 
 - [X] txs/utxoForAddresses
  - Data from `addresses/utxo`, getting block number from `block` by hash
-- [ ] account/registrationHistory
+- [X] account/registrationHistory
+ - From `accounts/registrations`
 - [ ] account/state
 - [ ] account/rewardHistory
 - [ ] pool/info
