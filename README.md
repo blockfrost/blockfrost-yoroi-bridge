@@ -6,11 +6,16 @@ The calls documented at https://github.com/Emurgo/yoroi-graphql-migration-backen
  - Data from `addresses/utxo`, getting block number from `block` by hash
 - [X] account/registrationHistory
  - From `accounts/registrations`
-- [ ] account/state
-- [ ] account/rewardHistory
-- [ ] pool/info
-- [ ] pool/delegationHistory
-- [ ] v2/addresses/filterUsed
+- [X] account/state
+ - Directly from `accounts`
+- [X] account/rewardHistory
+ - `accounts/rewards`
+- [X] pool/info
+ - `/pools/` with `pools/history`
+- [X] pool/delegationHistory
+ - `accoounts/delegations`
+- [X] v2/addresses/filterUsed
+ - Loop thought `/addresses` to get 404
 - [ ] v2/txs/history
 - [X] v2/bestblock
  - Data from `/blocks/latest`
