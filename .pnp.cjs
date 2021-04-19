@@ -40,7 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/plugin-transform-runtime", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.15"],
             ["@babel/preset-env", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.15"],
             ["@babel/preset-typescript", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.0"],
-            ["@blockfrost/blockfrost-js", "npm:0.0.6"],
+              ["@blockfrost/blockfrost-js", "npm:0.1.1"],
             ["@types/jest", "npm:26.0.22"],
             ["@typescript-eslint/eslint-plugin", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:4.21.0"],
             ["@typescript-eslint/parser", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:4.21.0"],
@@ -2356,13 +2356,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@blockfrost/blockfrost-js", [
-        ["npm:0.0.6", {
-          "packageLocation": "./.yarn/cache/@blockfrost-blockfrost-js-npm-0.0.6-e433f9cd33-6dc18550f7.zip/node_modules/@blockfrost/blockfrost-js/",
+        ["npm:0.1.1", {
+          "packageLocation": "./.yarn/cache/@blockfrost-blockfrost-js-npm-0.1.1-ac979d9562-cd8e5a72c4.zip/node_modules/@blockfrost/blockfrost-js/",
           "packageDependencies": [
-            ["@blockfrost/blockfrost-js", "npm:0.0.6"],
-            ["@blockfrost/openapi", "npm:0.0.58"],
-            ["@yarnpkg/pnpify", "virtual:e433f9cd33725557f7ebb78497f7901a654813604e75177aa0ee3aed886380523d73a5d2a2cf65a8ae39cfb1cd983b47c29cc1986c2298ccadfa1c248d0267d9#npm:2.4.0"],
+            ["@blockfrost/blockfrost-js", "npm:0.1.1"],
+            ["@blockfrost/openapi", "npm:0.1.9"],
+            ["@yarnpkg/pnpify", "virtual:ac979d95628369d23199f4d399bc666206aa01575b7d23ef42634a793f4886b8a5caac90f59724a385b9d9b692e8ca891a7db832fffed293de6860b3d3e746e4#npm:2.4.0"],
             ["axios", "npm:0.21.1"],
+            ["axios-retry", "npm:3.1.9"],
+            ["dotenv", "npm:8.2.0"],
             ["rimraf", "npm:3.0.2"],
             ["url-join", "npm:4.0.1"]
           ],
@@ -2379,7 +2381,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/plugin-transform-runtime", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.15"],
             ["@babel/preset-env", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.15"],
             ["@babel/preset-typescript", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.0"],
-            ["@blockfrost/blockfrost-js", "npm:0.0.6"],
+            ["@blockfrost/blockfrost-js", "npm:0.1.1"],
             ["@types/jest", "npm:26.0.22"],
             ["@typescript-eslint/eslint-plugin", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:4.21.0"],
             ["@typescript-eslint/parser", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:4.21.0"],
@@ -2400,10 +2402,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@blockfrost/openapi", [
-        ["npm:0.0.58", {
-          "packageLocation": "./.yarn/cache/@blockfrost-openapi-npm-0.0.58-16d64e340e-f36cff3e23.zip/node_modules/@blockfrost/openapi/",
+        ["npm:0.1.9", {
+          "packageLocation": "./.yarn/cache/@blockfrost-openapi-npm-0.1.9-98e17b28d1-643ac0707f.zip/node_modules/@blockfrost/openapi/",
           "packageDependencies": [
-            ["@blockfrost/openapi", "npm:0.0.58"]
+            ["@blockfrost/openapi", "npm:0.1.9"]
           ],
           "linkType": "HARD",
         }]
@@ -3332,10 +3334,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:e433f9cd33725557f7ebb78497f7901a654813604e75177aa0ee3aed886380523d73a5d2a2cf65a8ae39cfb1cd983b47c29cc1986c2298ccadfa1c248d0267d9#npm:2.4.0", {
-          "packageLocation": "./.yarn/__virtual__/@yarnpkg-pnpify-virtual-83e77a8989/0/cache/@yarnpkg-pnpify-npm-2.4.0-f9312c18ed-f0f68b9bea.zip/node_modules/@yarnpkg/pnpify/",
+        ["virtual:ac979d95628369d23199f4d399bc666206aa01575b7d23ef42634a793f4886b8a5caac90f59724a385b9d9b692e8ca891a7db832fffed293de6860b3d3e746e4#npm:2.4.0", {
+          "packageLocation": "./.yarn/__virtual__/@yarnpkg-pnpify-virtual-10d75338d9/0/cache/@yarnpkg-pnpify-npm-2.4.0-f9312c18ed-f0f68b9bea.zip/node_modules/@yarnpkg/pnpify/",
           "packageDependencies": [
-            ["@yarnpkg/pnpify", "virtual:e433f9cd33725557f7ebb78497f7901a654813604e75177aa0ee3aed886380523d73a5d2a2cf65a8ae39cfb1cd983b47c29cc1986c2298ccadfa1c248d0267d9#npm:2.4.0"],
+            ["@yarnpkg/pnpify", "virtual:ac979d95628369d23199f4d399bc666206aa01575b7d23ef42634a793f4886b8a5caac90f59724a385b9d9b692e8ca891a7db832fffed293de6860b3d3e746e4#npm:2.4.0"],
             ["@types/eslint", null],
             ["@types/typescript", null],
             ["@yarnpkg/core", "npm:2.4.0"],
@@ -3826,6 +3828,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["axios", "npm:0.21.1"],
             ["follow-redirects", "virtual:d192f6b3b31cd5d11a443145a3883a70c04cbd7c813c53085dbaf50263735f1162f10fdbddd53c24e162ec3bc37b90966413084323739b7cf942b8bfb4da8831#npm:1.13.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["axios-retry", [
+        ["npm:3.1.9", {
+          "packageLocation": "./.yarn/cache/axios-retry-npm-3.1.9-d2b6840272-6c3418b19c.zip/node_modules/axios-retry/",
+          "packageDependencies": [
+            ["axios-retry", "npm:3.1.9"],
+            ["is-retry-allowed", "npm:1.2.0"]
           ],
           "linkType": "HARD",
         }]
@@ -5022,6 +5034,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["domexception", "npm:2.0.1"],
             ["webidl-conversions", "npm:5.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["dotenv", [
+        ["npm:8.2.0", {
+          "packageLocation": "./.yarn/cache/dotenv-npm-8.2.0-6b21df4d37-ad4c8e0df3.zip/node_modules/dotenv/",
+          "packageDependencies": [
+            ["dotenv", "npm:8.2.0"]
           ],
           "linkType": "HARD",
         }]
@@ -6837,6 +6858,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["is-regex", "npm:1.1.2"],
             ["call-bind", "npm:1.0.2"],
             ["has-symbols", "npm:1.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["is-retry-allowed", [
+        ["npm:1.2.0", {
+          "packageLocation": "./.yarn/cache/is-retry-allowed-npm-1.2.0-730be11f6c-50d700a89a.zip/node_modules/is-retry-allowed/",
+          "packageDependencies": [
+            ["is-retry-allowed", "npm:1.2.0"]
           ],
           "linkType": "HARD",
         }]
