@@ -1226,6 +1226,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.14.0":
+  version: 7.14.0
+  resolution: "@babel/runtime@npm:7.14.0"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 257dc2594355dd8798455f25b6f2f9a00f162b427391265752933e0e3337b3b14661d09283187d5039ae3764f723890ffe767e995c73d662f1d515bdf48e5ade
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.8.4":
   version: 7.13.10
   resolution: "@babel/runtime@npm:7.13.10"
@@ -1280,18 +1289,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@blockfrost/blockfrost-js@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "@blockfrost/blockfrost-js@npm:0.1.1"
+"@blockfrost/blockfrost-js@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@blockfrost/blockfrost-js@npm:0.2.1"
   dependencies:
-    "@blockfrost/openapi": 0.1.9
+    "@blockfrost/openapi": 0.1.12
     "@yarnpkg/pnpify": ^2.4.0
     axios: ^0.21.1
     axios-retry: ^3.1.9
     dotenv: ^8.2.0
     rimraf: ^3.0.2
     url-join: ^4.0.1
-  checksum: cd8e5a72c46769fcd54101c872de553e709abcdd6c27d3106a3e86d8718492a18c5c8f0af9b7d63abb7b20a8d966cf5f934a223884fe1393d16ca77bdc33b59c
+  checksum: 4346b5c297945adeb3e5752b39d6724e1245fb4f1fb025c4cc6e7800ce10c12237505fa9307e407bf48b9a9d26d1702f650e35a9c4d6c4ba7a8e28a2d244b992
   languageName: node
   linkType: hard
 
@@ -1304,7 +1313,8 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.13.10
     "@babel/preset-env": ^7.13.12
     "@babel/preset-typescript": ^7.13.0
-    "@blockfrost/blockfrost-js": ^0.1.1
+    "@babel/runtime": ^7.14.0
+    "@blockfrost/blockfrost-js": ^0.2.1
     "@types/jest": ^26.0.22
     "@typescript-eslint/eslint-plugin": latest
     "@typescript-eslint/parser": ^4.20.0
@@ -1323,10 +1333,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blockfrost/openapi@npm:0.1.9":
-  version: 0.1.9
-  resolution: "@blockfrost/openapi@npm:0.1.9"
-  checksum: 643ac0707fe58c1ab4065e7f6743f221756469d38e36c69d11e2193d386c7c2bb54fac5081f183a719a79839ae8663c98be393ee98e0f5ad079d2f2c02011c88
+"@blockfrost/openapi@npm:0.1.12":
+  version: 0.1.12
+  resolution: "@blockfrost/openapi@npm:0.1.12"
+  checksum: 98ec9e097deed8357e87026daf8e8bf70868382909fa797b7794f2480fa87ee4bf3754efe41de914172cc7a0ed34e1e5ea906e048923a56294a5689a26a5a954
   languageName: node
   linkType: hard
 
