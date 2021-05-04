@@ -1,15 +1,18 @@
 {
   "cSpell.words": [
     "addresses",
+    "autoload",
     "bech",
     "blockfrost",
     "emurgo",
+    "fastify",
     "from",
     "keyhash",
     "tailwindcss",
     "to",
     "uninstantiated",
-    "utxos"
+    "utxos",
+    "yoroi"
   ],
   "search.exclude": {
     "**/.yarn": true,
