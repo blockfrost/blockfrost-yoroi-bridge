@@ -51,6 +51,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-prettier", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:8.1.0"],
             ["eslint-plugin-import", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:2.22.1"],
             ["eslint-plugin-prettier", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:3.3.1"],
+            ["eslint-plugin-promise", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:5.1.0"],
             ["eslint-plugin-react", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.23.2"],
             ["fastify", "npm:3.15.1"],
             ["fastify-autoload", "npm:3.7.1"],
@@ -2405,6 +2406,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-prettier", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:8.1.0"],
             ["eslint-plugin-import", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:2.22.1"],
             ["eslint-plugin-prettier", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:3.3.1"],
+            ["eslint-plugin-promise", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:5.1.0"],
             ["eslint-plugin-react", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.23.2"],
             ["fastify", "npm:3.15.1"],
             ["fastify-autoload", "npm:3.7.1"],
@@ -5517,6 +5519,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "eslint-config-prettier",
             "eslint",
             "prettier"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["eslint-plugin-promise", [
+        ["npm:5.1.0", {
+          "packageLocation": "./.yarn/cache/eslint-plugin-promise-npm-5.1.0-b8217328a4-e62947aaea.zip/node_modules/eslint-plugin-promise/",
+          "packageDependencies": [
+            ["eslint-plugin-promise", "npm:5.1.0"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:5.1.0", {
+          "packageLocation": "./.yarn/__virtual__/eslint-plugin-promise-virtual-acf24363d6/0/cache/eslint-plugin-promise-npm-5.1.0-b8217328a4-e62947aaea.zip/node_modules/eslint-plugin-promise/",
+          "packageDependencies": [
+            ["eslint-plugin-promise", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:5.1.0"],
+            ["@types/eslint", null],
+            ["eslint", "npm:7.23.0"]
+          ],
+          "packagePeers": [
+            "@types/eslint",
+            "eslint"
           ],
           "linkType": "HARD",
         }]
