@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.15"],
             ["@babel/preset-typescript", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.0"],
             ["@babel/runtime", "npm:7.14.0"],
-            ["@blockfrost/blockfrost-js", "npm:0.2.1"],
+            ["@blockfrost/blockfrost-js", "npm:0.2.3"],
             ["@types/jest", "npm:26.0.22"],
             ["@types/node", "npm:15.0.1"],
             ["@typescript-eslint/eslint-plugin", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:4.21.0"],
@@ -2370,12 +2370,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@blockfrost/blockfrost-js", [
-        ["npm:0.2.1", {
-          "packageLocation": "./.yarn/cache/@blockfrost-blockfrost-js-npm-0.2.1-d8d3718ac0-4346b5c297.zip/node_modules/@blockfrost/blockfrost-js/",
+        ["npm:0.2.3", {
+          "packageLocation": "./.yarn/cache/@blockfrost-blockfrost-js-npm-0.2.3-fa02317b64-f0660b6268.zip/node_modules/@blockfrost/blockfrost-js/",
           "packageDependencies": [
-            ["@blockfrost/blockfrost-js", "npm:0.2.1"],
-            ["@blockfrost/openapi", "npm:0.1.12"],
-            ["@yarnpkg/pnpify", "virtual:d8d3718ac09072ac30081209aaaf988d8062fb8eb25ef1505144cf8526a4850016b1ac1dfbdaeb81ac24472611d627c5ef0cbec5646cfb37eb66bf1ddf11046a#npm:2.4.0"],
+            ["@blockfrost/blockfrost-js", "npm:0.2.3"],
+            ["@blockfrost/openapi", "npm:0.1.13"],
+            ["@yarnpkg/pnpify", "virtual:fa02317b64372578f2bb0150e367ce5d6a37d55b825d4d5b5cbbf9fe72ee29ee17206686cce598ba5d017dbeb1827d8a44acc2044ec1d7e3894f0130a8a42ba4#npm:2.4.0"],
             ["axios", "npm:0.21.1"],
             ["axios-retry", "npm:3.1.9"],
             ["dotenv", "npm:8.2.0"],
@@ -2396,7 +2396,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.15"],
             ["@babel/preset-typescript", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.0"],
             ["@babel/runtime", "npm:7.14.0"],
-            ["@blockfrost/blockfrost-js", "npm:0.2.1"],
+            ["@blockfrost/blockfrost-js", "npm:0.2.3"],
             ["@types/jest", "npm:26.0.22"],
             ["@types/node", "npm:15.0.1"],
             ["@typescript-eslint/eslint-plugin", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:4.21.0"],
@@ -2422,10 +2422,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@blockfrost/openapi", [
-        ["npm:0.1.12", {
-          "packageLocation": "./.yarn/cache/@blockfrost-openapi-npm-0.1.12-6ee2842d5a-98ec9e097d.zip/node_modules/@blockfrost/openapi/",
+        ["npm:0.1.13", {
+          "packageLocation": "./.yarn/cache/@blockfrost-openapi-npm-0.1.13-d2c16d70e8-888ee9495f.zip/node_modules/@blockfrost/openapi/",
           "packageDependencies": [
-            ["@blockfrost/openapi", "npm:0.1.12"]
+            ["@blockfrost/openapi", "npm:0.1.13"]
           ],
           "linkType": "HARD",
         }]
@@ -3390,10 +3390,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:d8d3718ac09072ac30081209aaaf988d8062fb8eb25ef1505144cf8526a4850016b1ac1dfbdaeb81ac24472611d627c5ef0cbec5646cfb37eb66bf1ddf11046a#npm:2.4.0", {
-          "packageLocation": "./.yarn/__virtual__/@yarnpkg-pnpify-virtual-3d59f1adb8/0/cache/@yarnpkg-pnpify-npm-2.4.0-f9312c18ed-f0f68b9bea.zip/node_modules/@yarnpkg/pnpify/",
+        ["virtual:fa02317b64372578f2bb0150e367ce5d6a37d55b825d4d5b5cbbf9fe72ee29ee17206686cce598ba5d017dbeb1827d8a44acc2044ec1d7e3894f0130a8a42ba4#npm:2.4.0", {
+          "packageLocation": "./.yarn/__virtual__/@yarnpkg-pnpify-virtual-4a1aa5feb5/0/cache/@yarnpkg-pnpify-npm-2.4.0-f9312c18ed-f0f68b9bea.zip/node_modules/@yarnpkg/pnpify/",
           "packageDependencies": [
-            ["@yarnpkg/pnpify", "virtual:d8d3718ac09072ac30081209aaaf988d8062fb8eb25ef1505144cf8526a4850016b1ac1dfbdaeb81ac24472611d627c5ef0cbec5646cfb37eb66bf1ddf11046a#npm:2.4.0"],
+            ["@yarnpkg/pnpify", "virtual:fa02317b64372578f2bb0150e367ce5d6a37d55b825d4d5b5cbbf9fe72ee29ee17206686cce598ba5d017dbeb1827d8a44acc2044ec1d7e3894f0130a8a42ba4#npm:2.4.0"],
             ["@types/eslint", null],
             ["@types/typescript", null],
             ["@yarnpkg/core", "npm:2.4.0"],

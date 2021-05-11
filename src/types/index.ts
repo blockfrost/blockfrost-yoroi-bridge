@@ -38,7 +38,18 @@ export interface accountRegistrationHistoryResult {
   slot: number;
   txIndex: number;
   certIndex: number;
-  certType: 'StakeRegistration' | 'StakeDeregistration';
+  certType: string;
+  //certType: 'StakeRegistration' | 'StakeDeregistration';
+}
+
+export interface accountRegistrationHistoryYoroi {
+  string: {
+    slot: number;
+    txIndex: number;
+    certIndex: number;
+    //certType: string;
+    certType: 'StakeRegistration' | 'StakeDeregistration';
+  }; //[]
 }
 
 export interface account_registration_content_single {
