@@ -41,12 +41,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.15"],
             ["@babel/preset-typescript", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.0"],
             ["@babel/runtime", "npm:7.14.0"],
-            ["@blockfrost/blockfrost-js", "npm:0.2.3"],
+            ["@blockfrost/blockfrost-js", "npm:0.2.5"],
             ["@types/jest", "npm:26.0.22"],
             ["@types/node", "npm:15.0.1"],
             ["@typescript-eslint/eslint-plugin", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:4.21.0"],
             ["@typescript-eslint/parser", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:4.21.0"],
             ["@yarnpkg/pnpify", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:2.4.0"],
+            ["bech32", "npm:2.0.0"],
+            ["bignumber.js", "npm:9.0.1"],
             ["eslint", "npm:7.23.0"],
             ["eslint-config-prettier", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:8.1.0"],
             ["eslint-plugin-import", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:2.22.1"],
@@ -2370,12 +2372,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@blockfrost/blockfrost-js", [
-        ["npm:0.2.3", {
-          "packageLocation": "./.yarn/cache/@blockfrost-blockfrost-js-npm-0.2.3-fa02317b64-f0660b6268.zip/node_modules/@blockfrost/blockfrost-js/",
+        ["npm:0.2.5", {
+          "packageLocation": "./.yarn/cache/@blockfrost-blockfrost-js-npm-0.2.5-73b08f4b36-2b8f04229d.zip/node_modules/@blockfrost/blockfrost-js/",
           "packageDependencies": [
-            ["@blockfrost/blockfrost-js", "npm:0.2.3"],
-            ["@blockfrost/openapi", "npm:0.1.13"],
-            ["@yarnpkg/pnpify", "virtual:fa02317b64372578f2bb0150e367ce5d6a37d55b825d4d5b5cbbf9fe72ee29ee17206686cce598ba5d017dbeb1827d8a44acc2044ec1d7e3894f0130a8a42ba4#npm:2.4.0"],
+            ["@blockfrost/blockfrost-js", "npm:0.2.5"],
+            ["@blockfrost/openapi", "npm:0.1.15"],
+            ["@yarnpkg/pnpify", "virtual:73b08f4b36c25ebafda098d79352efca81cc8dddeab61e86e5e4b9e0f8589e169556317ffbeb5ba6881ca8af7340d858cefc717781f463e82649272577487f37#npm:2.4.0"],
             ["axios", "npm:0.21.1"],
             ["axios-retry", "npm:3.1.9"],
             ["dotenv", "npm:8.2.0"],
@@ -2396,12 +2398,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.15"],
             ["@babel/preset-typescript", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:7.13.0"],
             ["@babel/runtime", "npm:7.14.0"],
-            ["@blockfrost/blockfrost-js", "npm:0.2.3"],
+            ["@blockfrost/blockfrost-js", "npm:0.2.5"],
             ["@types/jest", "npm:26.0.22"],
             ["@types/node", "npm:15.0.1"],
             ["@typescript-eslint/eslint-plugin", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:4.21.0"],
             ["@typescript-eslint/parser", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:4.21.0"],
             ["@yarnpkg/pnpify", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:2.4.0"],
+            ["bech32", "npm:2.0.0"],
+            ["bignumber.js", "npm:9.0.1"],
             ["eslint", "npm:7.23.0"],
             ["eslint-config-prettier", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:8.1.0"],
             ["eslint-plugin-import", "virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:2.22.1"],
@@ -2422,10 +2426,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@blockfrost/openapi", [
-        ["npm:0.1.13", {
-          "packageLocation": "./.yarn/cache/@blockfrost-openapi-npm-0.1.13-d2c16d70e8-888ee9495f.zip/node_modules/@blockfrost/openapi/",
+        ["npm:0.1.15", {
+          "packageLocation": "./.yarn/cache/@blockfrost-openapi-npm-0.1.15-bc4585c2c5-97bece868b.zip/node_modules/@blockfrost/openapi/",
           "packageDependencies": [
-            ["@blockfrost/openapi", "npm:0.1.13"]
+            ["@blockfrost/openapi", "npm:0.1.15"]
           ],
           "linkType": "HARD",
         }]
@@ -3365,6 +3369,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
+        ["virtual:73b08f4b36c25ebafda098d79352efca81cc8dddeab61e86e5e4b9e0f8589e169556317ffbeb5ba6881ca8af7340d858cefc717781f463e82649272577487f37#npm:2.4.0", {
+          "packageLocation": "./.yarn/__virtual__/@yarnpkg-pnpify-virtual-53b68a2eeb/0/cache/@yarnpkg-pnpify-npm-2.4.0-f9312c18ed-f0f68b9bea.zip/node_modules/@yarnpkg/pnpify/",
+          "packageDependencies": [
+            ["@yarnpkg/pnpify", "virtual:73b08f4b36c25ebafda098d79352efca81cc8dddeab61e86e5e4b9e0f8589e169556317ffbeb5ba6881ca8af7340d858cefc717781f463e82649272577487f37#npm:2.4.0"],
+            ["@types/eslint", null],
+            ["@types/typescript", null],
+            ["@yarnpkg/core", "npm:2.4.0"],
+            ["@yarnpkg/fslib", "npm:2.4.0"],
+            ["@yarnpkg/parsers", "npm:2.3.0"],
+            ["chalk", "npm:3.0.0"],
+            ["clipanion", "npm:2.6.2"],
+            ["comment-json", "npm:2.4.2"],
+            ["eslint", null],
+            ["lodash", "npm:4.17.21"],
+            ["tslib", "npm:1.14.1"],
+            ["typescript", null]
+          ],
+          "packagePeers": [
+            "@types/eslint",
+            "@types/typescript",
+            "eslint",
+            "typescript"
+          ],
+          "linkType": "HARD",
+        }],
         ["virtual:9365f4227c2d1aad7477bb4065296d0d6eabe715e11d47fabd672a627221c85df201a70a740bd0435b26244be0d14866d1d949fa9611f5e88e24dbbc08c2b81e#npm:2.4.0", {
           "packageLocation": "./.yarn/__virtual__/@yarnpkg-pnpify-virtual-10aca133ac/0/cache/@yarnpkg-pnpify-npm-2.4.0-f9312c18ed-f0f68b9bea.zip/node_modules/@yarnpkg/pnpify/",
           "packageDependencies": [
@@ -3381,31 +3410,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash", "npm:4.17.21"],
             ["tslib", "npm:1.14.1"],
             ["typescript", "patch:typescript@npm%3A4.2.4#~builtin<compat/typescript>::version=4.2.4&hash=34ad7d"]
-          ],
-          "packagePeers": [
-            "@types/eslint",
-            "@types/typescript",
-            "eslint",
-            "typescript"
-          ],
-          "linkType": "HARD",
-        }],
-        ["virtual:fa02317b64372578f2bb0150e367ce5d6a37d55b825d4d5b5cbbf9fe72ee29ee17206686cce598ba5d017dbeb1827d8a44acc2044ec1d7e3894f0130a8a42ba4#npm:2.4.0", {
-          "packageLocation": "./.yarn/__virtual__/@yarnpkg-pnpify-virtual-4a1aa5feb5/0/cache/@yarnpkg-pnpify-npm-2.4.0-f9312c18ed-f0f68b9bea.zip/node_modules/@yarnpkg/pnpify/",
-          "packageDependencies": [
-            ["@yarnpkg/pnpify", "virtual:fa02317b64372578f2bb0150e367ce5d6a37d55b825d4d5b5cbbf9fe72ee29ee17206686cce598ba5d017dbeb1827d8a44acc2044ec1d7e3894f0130a8a42ba4#npm:2.4.0"],
-            ["@types/eslint", null],
-            ["@types/typescript", null],
-            ["@yarnpkg/core", "npm:2.4.0"],
-            ["@yarnpkg/fslib", "npm:2.4.0"],
-            ["@yarnpkg/parsers", "npm:2.3.0"],
-            ["chalk", "npm:3.0.0"],
-            ["clipanion", "npm:2.6.2"],
-            ["comment-json", "npm:2.4.2"],
-            ["eslint", null],
-            ["lodash", "npm:4.17.21"],
-            ["tslib", "npm:1.14.1"],
-            ["typescript", null]
           ],
           "packagePeers": [
             "@types/eslint",
@@ -4186,6 +4190,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["bcrypt-pbkdf", "npm:1.0.2"],
             ["tweetnacl", "npm:0.14.5"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["bech32", [
+        ["npm:2.0.0", {
+          "packageLocation": "./.yarn/cache/bech32-npm-2.0.0-ad98b7dd79-fa15acb270.zip/node_modules/bech32/",
+          "packageDependencies": [
+            ["bech32", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["bignumber.js", [
+        ["npm:9.0.1", {
+          "packageLocation": "./.yarn/cache/bignumber.js-npm-9.0.1-270d0c8a55-6e72f6069d.zip/node_modules/bignumber.js/",
+          "packageDependencies": [
+            ["bignumber.js", "npm:9.0.1"]
           ],
           "linkType": "HARD",
         }]
