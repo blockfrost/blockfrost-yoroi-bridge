@@ -1289,9 +1289,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@blockfrost/blockfrost-js@npm:^0.2.5":
-  version: 0.2.5
-  resolution: "@blockfrost/blockfrost-js@npm:0.2.5"
+"@blockfrost/blockfrost-js@npm:^0.2.6":
+  version: 0.2.6
+  resolution: "@blockfrost/blockfrost-js@npm:0.2.6"
   dependencies:
     "@blockfrost/openapi": 0.1.15
     "@yarnpkg/pnpify": ^2.4.0
@@ -1300,7 +1300,7 @@ __metadata:
     dotenv: ^8.2.0
     rimraf: ^3.0.2
     url-join: ^4.0.1
-  checksum: 2b8f04229d8912b4a7d2b3f3c217f4243d39fe60a5be18a9ef95279bf5b8b1a6273284849f96726da27ccb4be9cacdd144fccbb116fb1ecffdfdc56eb3943017
+  checksum: 1a1d48b22e9ea38e319dc1ca3f07d54306b632e4e14d7b926b7966699de88983a216bef4d1d4df686af76a5bdccdf9db14781706c9207ba07282766b3cff7181
   languageName: node
   linkType: hard
 
@@ -1314,7 +1314,7 @@ __metadata:
     "@babel/preset-env": ^7.13.12
     "@babel/preset-typescript": ^7.13.0
     "@babel/runtime": ^7.14.0
-    "@blockfrost/blockfrost-js": ^0.2.5
+    "@blockfrost/blockfrost-js": ^0.2.6
     "@types/jest": ^26.0.22
     "@types/node": ^15.0.1
     "@typescript-eslint/eslint-plugin": latest

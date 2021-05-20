@@ -1,0 +1,74 @@
+POST
+/api/account/rewardHistory
+{"addresses":["e1df7069f64fe3b61ecf018144de347e1aa8459ded8369e1ed6f5ac74d"]}
+RESPONSE
+{"e1df7069f64fe3b61ecf018144de347e1aa8459ded8369e1ed6f5ac74d":[{"epoch":211,"reward":"45504878","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":212,"reward":"45434721","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":213,"reward":"55358148","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":214,"reward":"44064766","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":215,"reward":"47290421","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":216,"reward":"43923256","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":217,"reward":"48116389","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":218,"reward":"50966037","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":219,"reward":"50741237","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":220,"reward":"49541892","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":221,"reward":"49348624","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":222,"reward":"46819504","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":223,"reward":"39039862","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":224,"reward":"43729877","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":225,"reward":"63789902","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":226,"reward":"51506779","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":227,"reward":"30755626","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":228,"reward":"17894764","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":229,"reward":"59933160","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":230,"reward":"46075640","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":231,"reward":"60360129","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":232,"reward":"43361888","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":233,"reward":"59572525","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":234,"reward":"62993559","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":235,"reward":"48360010","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":236,"reward":"44573244","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":237,"reward":"40968","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":238,"reward":"44664011","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":239,"reward":"46299840","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":240,"reward":"33006861","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":241,"reward":"61367127","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":242,"reward":"47780738","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":243,"reward":"10371881","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":244,"reward":"8613002","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":245,"reward":"6056588","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":246,"reward":"7736653","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":247,"reward":"2990995","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":248,"reward":"75154690","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":249,"reward":"71143024","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":250,"reward":"75677833","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":251,"reward":"52344","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":252,"reward":"131680","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":253,"reward":"236695341","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":254,"reward":"163007801","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":255,"reward":"250106367","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":256,"reward":"162378906","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":257,"reward":"183029019","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":258,"reward":"189182206","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":259,"reward":"211826848","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":260,"reward":"178255205","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":261,"reward":"180970469","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":262,"reward":"199874771","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"},{"epoch":263,"reward":"237404131","poolHash":"0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"}]}
+
+POST
+/api/account/state
+{"addresses":["e1df7069f64fe3b61ecf018144de347e1aa8459ded8369e1ed6f5ac74d"]}
+{"e1df7069f64fe3b61ecf018144de347e1aa8459ded8369e1ed6f5ac74d":{"remainingAmount":"2268592921","rewards":"3932876137","withdrawals":"1664283216","poolOperator":null}}
+
+POST
+/api/pool/info
+{"poolIds":["0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735"]}
+{
+  "0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735": {
+    "info": {
+      "name": "StakeNuts",
+      "description": "StakeNuts.com",
+      "ticker": "NUTS",
+      "homepage": "https://stakenuts.com/",
+      "extended": "https://stakenuts.com/mainnet-extended.json"
+    },
+    "history": [
+      {
+        "epoch": 208,
+        "slot": 940,
+        "tx_ordinal": 6,
+        "cert_ordinal": 0,
+        "payload": {
+          "kind": "PoolRegistration",
+          "certIndex": 0,
+          "poolParams": {
+            "operator": "0f292fcaa02b8b2f9b3c8f9fd8e0bb21abedb692a6d5058df3ef2735",
+            "vrfKeyHash": "b512cc7c1a8ba689c2d8fd27adfdbac2049a3f8f95c8b85e8298f14d7d8dc4e6",
+            "pledge": "510000000000",
+            "cost": "340000000",
+            "margin": 0.049,
+            "rewardAccount": "e14f39feccb595162d892abd1e03d80de8e76b8a2015139430e032b2be",
+            "poolOwners": [
+              "4f39feccb595162d892abd1e03d80de8e76b8a2015139430e032b2be"
+            ],
+            "relays": [
+              {
+                "ipv4": null,
+                "ipv6": null,
+                "dnsName": "relays.mainnet.stakenuts.com",
+                "dnsSrvName": null,
+                "port": "3001"
+              }
+            ],
+            "poolMetadata": {
+              "url": "https://stakenuts.com/mainnet.json",
+              "metadataHash": "47c0c68cb57f4a5b4a87bad896fc274678e7aea98e200fa14a1cb40c0cab1d8c"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+POST (TESTNET RESPONSES)
+/api/v2/addresses/filterUsed
+{"addresses":["addr_vkh1v5gwahms7u9f9lh4plc7q00cnumpk0n8p48njfqlrejxj24fqus","addr_vkh1zf7skqms4ms88hl03spe6dexsxn7rmeq2qh37sgqw0qvj55lc3p","addr_vkh1wqjuzvew7e9shtka36t9de4rjgzwfyuee5v6au3gk5ap2cng7xt","addr_vkh19j66p36cleazz6y2zym5ecne7lflfsql0k0v482gyxax6uudjmt","addr_vkh1j0e4dag4qd9lzstq2cwxe52dwe7jhf3j3wht0sg8slwrvrlfwul","addr_vkh1nvf4rjczqnywnjvdzpyrtwkr0svjpqr6l2v7ycpltfxnw5lvk4q","addr_vkh1tv6egfv0talcl4altv7u66enz6l9c78mk9tlq45z4n80wc5900p","addr_vkh1jehpmnpla5grzldwkujte0yc3yxjsfnkunwr0jgjkqwusna7mxq","addr_vkh1eapmqepl7hptp7l292mgthmm89d0sk9l332ykglq4kaxw5an56w","addr_vkh1rnwmq78az03ym0ugl7hadny4hfdms55t5yqjs2mm2ly6604cn40","addr_vkh1ft4uxrtp92e834qvgesf6avu7kc0a79gyyzwlzu7n5nr50mpe62","addr_vkh1tzs856wefesw994yee4n9kufh073utk4emrx2n3jkjy4q7pl9d4","addr_vkh1r56nf0jv0dqya0nvzytalnhc3tr7r7twlap5h0lyn9axgtewcvr","addr_vkh1hq8pt9zugfwuds5jg2j59nmgzhtxax8pldd59c54uuvcg2ka8aj","addr_vkh1ekvvk7hwwnngcffmgs2269r73hvsrj3ex5ynny3mhmf7gfpjv69","addr_vkh1tjhum503tcqw4jzssuepy655p3hvsnkjpjc4ewhvvee35zau73l","addr_vkh1uvfune7m0z5fukej24k9ltpvqqg7pq65nkamr36qr9ssul2jzez","addr_vkh1r0y403zcvpcpndxacfs9eq2gf9z0lpm4sux7c7dtz65agmhg9d5","addr_vkh1lw04w0t5u6e7azzve25w6zjrnfcfhw0mh2x9629d3kd0cq8a4sa","addr_vkh17x26uslnf4kwnn7ut0xqw3w3nfg76ma65z3h7mxu8ch0vwk64a0","addr_vkh1ugj3jvsw2m43d06asv9hwa38us6jtgd5zr6e0nx3qv8guzwd80d","addr_vkh1duk2927xhkz03dyhkp0a68rteux8r696m68gtq74p4pnzy4vm72","addr_vkh199r8089f4h8hzcg5yylrg4nx04cwtt5qpnq08tpzgp0g795yglu","addr_vkh127pjmspcd4suad6kvgwzs5udt3ceq9xpu2s6dz0spwruseszknu","addr_vkh1usfvc7mu8cnt43edmn3w8esnndxj6mf59t75swry0l365dcdcnw","addr_vkh17hh35mvlmg7jes0dxu0ysyv6xcgr777tx33q747fx59t6kjdr5u","addr_vkh12ufax2krkyq7mjrwv7sv2vkxayu3gwyte7ueam96peajvmc944p","addr_vkh10fu02lqcn6ug3psenue60a09svccmn0tgct6yhv0rpuw54h7l0q","addr_vkh1mhg63yruzyrjleuppuwqw30smyvqnvfhdt0prxy5l62qw8289rw","addr_vkh194x4wvhrluk6n9gqwsqpkdhk0lgartt6ea0nq3j9m7aeqt8acp5","addr_vkh1urnyfr878k7dm4dfqmyphpy4eemzhknazjgmtpvrz89tcvcj3lz","addr_vkh1tzhm3d5trtrwkyfzpytdur5jam0hjx5x2wc8qf7ykdwajvaam62","addr_vkh1w5w9fulegfk0gyggd3dzf3f5xhww9qg2wktc3lkey6mhkrthnnz","addr_vkh1dyx8kql9j59327s0vm4nrpkdpkhs00gfe0r4s986s0pwgpaw3yr","addr_vkh1acn7kty4peul9v4c5nsr2qrqz7yv7wskx3j2tp6xvqkh728jznm","addr_vkh1cy7cgkrakzp7jjemnvl4hpr9ue98vwa8lj63jq3p9ed85nq3djc","addr_vkh1lv6ne5x0yszeazchlfw2etvr4k6ke3dc832ldq5r7gktw9twl86","addr_vkh1eacr0sjy0w6yjym2v56gnzulvws2mz6lcuhqgpve0vucvxmjzsm","addr_vkh14pqgc9gda6f6ls9ggkwnwxcu2ndysjgxrjkpc66pxw6u5nauqwj","addr_vkh15ynv7va62yh660wtswtxjd4flesc6un7460uyhhjps73wsw6rn7","addr_vkh16dhwx05kqu39d2fndrsaqsgywn5f8ads2pjt7kz3vcp6cmg8acj","addr_vkh1uehv2jr0k6pps5jmsy4wjtlugtjv4ctysev6uwpv6y8956qma0z","addr_vkh156zzcyd3p2t9fwqfuf6y6efdsndac6akfnhk60k8efccj5g3370","addr_vkh1kna4nsrjtsph7tnzddht7em5v3g0t0yuh7ucw59r43kfcsgrajs","addr_vkh1s0v7l8rregllvql69j9ygu2nhz6a6wuzd5fcah63m2am6u9c3tu","addr_vkh1t2s9056rjd8ffurwaujuflytw084egjzf98wn4d7jxrncyrn2fd","addr_vkh1f6rrst5ufjzrp75wqcyk95a4m3vw5e26ydcvnps2rc2jc766wtw","addr_vkh18yaumnttds9s42ehmuc9d6rflyar2ucu6r0hyypypxk8zmg8gxm","addr_vkh165xjn53sm7waeasp4gv9h9n0qlp698f0jcdgg87sjaj65z3zt4r","addr_vkh1808d2mvsaag08e03j934m083f4x3el0763y7vz6a6j7t2520r0t"]}
+["addr_vkh1v5gwahms7u9f9lh4plc7q00cnumpk0n8p48njfqlrejxj24fqus","addr_vkh1zf7skqms4ms88hl03spe6dexsxn7rmeq2qh37sgqw0qvj55lc3p","addr_vkh1wqjuzvew7e9shtka36t9de4rjgzwfyuee5v6au3gk5ap2cng7xt"]
+
+GET
+/api/v2/bestblock
+{"epoch":265,"slot":238640,"hash":"a20ce8ade5825262142b399f5b3987c62e040d10bec4bc72b19f89b68a511722","height":5713079}
+
+GET
+/api/status
+{"isServerOk":true,"isMaintenance":false,"serverTime":1620922350414}

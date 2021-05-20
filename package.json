@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.14.0",
-    "@blockfrost/blockfrost-js": "^0.2.5",
+    "@blockfrost/blockfrost-js": "^0.2.6",
     "@yarnpkg/pnpify": "^2.4.0",
     "bech32": "^2.0.0",
     "bignumber.js": "^9.0.1",
