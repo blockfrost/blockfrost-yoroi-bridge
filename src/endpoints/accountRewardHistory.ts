@@ -1,10 +1,10 @@
 import { FastifyInstance } from 'fastify';
-import { accountRegistrationHistoryMethod } from '../methods/accountRegistrationHistory';
+import { accountRewardHistoryMethod } from '../methods/accountRewardHistory';
 import { bech32 } from 'bech32';
 
-async function accountRegistrationHistory(fastify: FastifyInstance) {
+async function accountRewardHistory(fastify: FastifyInstance) {
   fastify.route({
-    url: '/account/registration/history',
+    url: '/account/rewardHistory',
     method: 'GET', // TODO: POST
     handler: async (_req, res) => {
       //TODO: until we use req.body
@@ -28,10 +28,10 @@ async function accountRegistrationHistory(fastify: FastifyInstance) {
         addresses.push(encoded);
       });
 
-      const result = await accountRegistrationHistoryMethod(addresses);
+      const result = await accountRewardHistoryMethod(addresses);
       res.send(result);
     },
   });
 }
 
-module.exports = accountRegistrationHistory;
+module.exports = accountRewardHistory;

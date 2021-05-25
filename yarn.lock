@@ -1289,18 +1289,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@blockfrost/blockfrost-js@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "@blockfrost/blockfrost-js@npm:0.2.1"
+"@blockfrost/blockfrost-js@npm:^0.2.6":
+  version: 0.2.6
+  resolution: "@blockfrost/blockfrost-js@npm:0.2.6"
   dependencies:
-    "@blockfrost/openapi": 0.1.12
+    "@blockfrost/openapi": 0.1.15
     "@yarnpkg/pnpify": ^2.4.0
     axios: ^0.21.1
     axios-retry: ^3.1.9
     dotenv: ^8.2.0
     rimraf: ^3.0.2
     url-join: ^4.0.1
-  checksum: 4346b5c297945adeb3e5752b39d6724e1245fb4f1fb025c4cc6e7800ce10c12237505fa9307e407bf48b9a9d26d1702f650e35a9c4d6c4ba7a8e28a2d244b992
+  checksum: 1a1d48b22e9ea38e319dc1ca3f07d54306b632e4e14d7b926b7966699de88983a216bef4d1d4df686af76a5bdccdf9db14781706c9207ba07282766b3cff7181
   languageName: node
   linkType: hard
 
@@ -1330,6 +1330,7 @@ __metadata:
     eslint-config-prettier: 8.1.0
     eslint-plugin-import: ^2.22.1
     eslint-plugin-prettier: 3.3.1
+    eslint-plugin-promise: ^5.1.0
     eslint-plugin-react: ^7.23.1
     expect-puppeteer: ^5.0.3
     fastify: ^3.15.1
@@ -1349,10 +1350,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blockfrost/openapi@npm:0.1.12":
-  version: 0.1.12
-  resolution: "@blockfrost/openapi@npm:0.1.12"
-  checksum: 98ec9e097deed8357e87026daf8e8bf70868382909fa797b7794f2480fa87ee4bf3754efe41de914172cc7a0ed34e1e5ea906e048923a56294a5689a26a5a954
+"@blockfrost/openapi@npm:0.1.15":
+  version: 0.1.15
+  resolution: "@blockfrost/openapi@npm:0.1.15"
+  checksum: 97bece868b60823f27fbbc0f943019f351e635141e56dd6287b464f79c748be30b996c93e5ba13436beeef6ff21c66614a6c64c5b4d38930ab93d0c026cc6723
   languageName: node
   linkType: hard
 
@@ -2958,6 +2959,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bech32@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "bech32@npm:2.0.0"
+  checksum: fa15acb270b59aa496734a01f9155677b478987b773bf701f465858bf1606c6a970085babd43d71ce61895f1baa594cb41a2cd1394bd2c6698f03cc2d811300e
+  languageName: node
+  linkType: hard
+
+"bignumber.js@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "bignumber.js@npm:9.0.1"
+  checksum: 6e72f6069d9db32fc8d27561164de9f811b15f9144be61f323d8b36150a239eea50c92e20ba38af2ba5e717af10b8ef12db8f9948fe2ff02bf17ede5239d15d3
+  languageName: node
+  linkType: hard
+
 "binary-extensions@npm:^1.0.0":
   version: 1.13.1
   resolution: "binary-extensions@npm:1.13.1"
@@ -4149,6 +4164,15 @@ __metadata:
     eslint-config-prettier:
       optional: true
   checksum: 217253dd2dea0c1aee6a7bf82e729236874807bc160c9481be38453c1f5b6f38050c8f1d4db8495c87c1edcbcbed70ce289b80c65fe3ad992df748e56fc5f44d
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-promise@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "eslint-plugin-promise@npm:5.1.0"
+  peerDependencies:
+    eslint: ^7.0.0
+  checksum: e62947aaea6882951a1a9f5fe3e3c7925b8dcc222338f7979bd1495ba0f0dc701820116b108be1e801f6e5156eb9a928142f29c659fd21a5d65a4be495bb327d
   languageName: node
   linkType: hard
 
