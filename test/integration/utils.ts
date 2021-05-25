@@ -5,5 +5,5 @@ export const getApiUrl = (endpoint: string): string => {
     throw Error('Missing base api url process.env.BASE_URL');
   }
 
-  return join(process.env.BASE_URL, `/api/v2`, endpoint);
+  return join(process.env.BASE_URL, endpoint);
 };
