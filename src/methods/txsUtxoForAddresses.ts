@@ -97,9 +97,30 @@ export const txsUtxoForAddressesMethod = async (
 
     details.map(item => {
       const lovelaceBalance = item.utxos.amount.find(b => b.unit === 'lovelace');
-      const tokensBalances = item.utxos.amount.filter(b => b.unit !== 'lovelace');
-      //const lovelace = item.utxos.amount[0].quantity; // first item = Lovelace TODO: THERE'S A BETTER WAY
-      //item.utxos.amount.shift(); // remove Lovelace from array to get only assets
+      const assetsBalances = item.utxos.amount.filter(b => b.unit !== 'lovelace');
+
+      const reformattedAssets: Types.Asset[] = [];
+      if (assetsBalances) {
+        assetsBalances.map(asset => {
+          const policy = asset.unit.substring(0, 56);
+
+          let id = policy + '.';
+          let name = null;
+          if (asset.unit.length > 56) {
+            const hexName = asset.unit.substring(56);
+            name = hexName;
+            id = policy + '.' + hexName;
+          }
+
+          const reformattedAsset = {
+            assetId: id,
+            policyId: policy,
+            name: name,
+            amount: asset.quantity,
+          };
+          reformattedAssets.push(reformattedAsset);
+        });
+      }
 
       result.push({
         utxo_id: `${item.utxos.tx_hash}` + ':' + `${item.utxos.tx_index}`, // concat tx_hash and tx_index
@@ -108,7 +129,7 @@ export const txsUtxoForAddressesMethod = async (
         block_num: item.block.height, // NOTE: not slot_no
         receiver: item.address,
         amount: lovelaceBalance ? lovelaceBalance.quantity : '0', //lovelace,
-        assets: tokensBalances, //item.utxos.amount,
+        assets: reformattedAssets, //item.utxos.amount,
       });
     });
   } catch (err) {

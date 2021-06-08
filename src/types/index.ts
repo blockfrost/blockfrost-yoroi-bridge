@@ -31,10 +31,10 @@ export interface address_utxo_content_single {
   block: string;
 }
 
-interface Asset {
-  unit: string;
-  quantity: string;
-}
+// interface Asset {
+//   unit: string;
+//   quantity: string;
+// }
 
 export interface AccountRegistrationHistoryResult {
   slot: number;
@@ -269,4 +269,111 @@ export interface pool_relays_single {
   dns_srv: string | null;
   /** Network port of the relay */
   port: number;
+}
+
+export type AddressesResult = {
+  address: string;
+  data: Responses['address_content'] | 'empty';
+}[];
+
+export interface Data {
+  txUtxos: Responses['tx_content_utxo'];
+  txData: Responses['tx_content'];
+  blockInfo: Responses['block_content'];
+}
+// export interface TxIdsToTransactionsResponse extends Data {
+//   address: string;
+//   txHash: string;
+// }
+// export interface TxIdsToTransactionsPromises {
+//   address: string;
+//   txHash: string;
+//   promise: Promise<Data>;
+// }
+
+export enum BlockEra {
+  Byron = 'byron',
+  Shelley = 'shelley',
+}
+
+export interface TransactionFrag {
+  hash: string;
+  fee: string;
+  ttl: string;
+  blockEra: BlockEra;
+  metadata: null | string;
+  block: BlockFrag;
+  includedAt: Date;
+  inputs: TransInputFrag[];
+  outputs: TransOutputFrag[]; // technically a TransactionOutput fragment
+  txIndex: number;
+  withdrawals: TransOutputFrag[];
+  certificates: Certificate[];
+}
+export interface BlockFrag {
+  number: number;
+  hash: string;
+  epochNo: number;
+  slotNo: number;
+}
+
+export interface Asset {
+  assetId: string;
+  policyId: string;
+  name: null | string;
+  amount: string;
+}
+
+export interface TransInputFrag {
+  address: string;
+  amount: string;
+  id: string;
+  index: number;
+  txHash: string;
+  assets: Asset[];
+}
+export interface TransOutputFrag {
+  address: string;
+  amount: string;
+  assets: null | Asset[];
+}
+
+export interface txsHistory {
+  // information that is only present if block is included in the blockchain
+  block_num: null | number;
+  block_hash: null | string;
+  tx_ordinal: null | number;
+  time: null | string; // timestamp with timezone
+  epoch: null | number;
+  slot: null | number;
+
+  // information that is always present
+  type: 'byron' | 'shelley';
+  hash: string;
+  last_update: string; // timestamp with timezone
+  tx_state: 'Successful' | 'Failed' | 'Pending';
+  inputs: {
+    // these will be ordered by the input transaction id asc
+    address: string;
+    amount: string;
+    id: string; // concatenation of txHash || index
+    index: number;
+    txHash: string;
+    assets: Asset[];
+  }[];
+  outputs: {
+    //these will be ordered by transaction index asc.
+    address: string;
+    amount: string;
+    assets: Asset[];
+  }[];
+  withdrawals: {
+    address: string; // hex
+    amount: string;
+  }[];
+  certificates: Certificate[];
+}
+export interface Withdrawal {
+  address: string;
+  amount: string;
 }

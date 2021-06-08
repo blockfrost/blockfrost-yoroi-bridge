@@ -123,13 +123,11 @@ export const getHistory = async (
                       },
                     } as const; // see `v2/txs/history`}
                   });
-                  console.log('TXS', txs);
 
                   return resolve({
                     poolHistory: txs,
                   });
                 } else if (poolUpdateOrRetirement.type === 'retirement') {
-                  console.log('retirement');
                   const txGeneral = await api.txs(txHash);
                   const txGeneralBlock = await api.blocks(txGeneral.block);
                   const txDetail = await api.txsPoolRetires(txHash);
@@ -151,7 +149,6 @@ export const getHistory = async (
                         }, // see `v2/txs/history`}
                       } as const),
                   );
-                  console.log('retirementtxs', txs);
                   return resolve({
                     poolHistory: txs,
                   });

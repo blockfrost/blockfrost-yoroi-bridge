@@ -1289,18 +1289,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@blockfrost/blockfrost-js@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@blockfrost/blockfrost-js@npm:0.4.0"
+"@blockfrost/blockfrost-js@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@blockfrost/blockfrost-js@npm:0.4.1"
   dependencies:
-    "@blockfrost/openapi": ^0.1.17
+    "@blockfrost/openapi": ^0.1.18
     "@yarnpkg/pnpify": ^2.4.0
     axios: ^0.21.1
     axios-retry: ^3.1.9
     dotenv: ^8.2.0
     rimraf: ^3.0.2
     url-join: ^4.0.1
-  checksum: 46ea3c2ae1252acc4589dc11c06445591822a7350cec34f4fff91348776318bfc2a563fd884666405a8498e022e1360cfa3c50c6b0475bf878c12430c4dbcaa3
+  checksum: d24982b609fbe702eae82873ee61dce7f527d93100a4645fee807899816bec1b2c58d5ecf7a895d412b8ac6f726bf88d1f3e473a7e2bfa5dd21ab19d6cb1e6b2
   languageName: node
   linkType: hard
 
@@ -1314,7 +1314,7 @@ __metadata:
     "@babel/preset-env": ^7.13.12
     "@babel/preset-typescript": ^7.13.0
     "@babel/runtime": ^7.14.0
-    "@blockfrost/blockfrost-js": ^0.4.0
+    "@blockfrost/blockfrost-js": ^0.4.1
     "@types/expect-puppeteer": ^4.4.5
     "@types/jest": ^26.0.22
     "@types/jest-environment-puppeteer": ^4.4.1
@@ -1352,10 +1352,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@blockfrost/openapi@npm:^0.1.17":
-  version: 0.1.17
-  resolution: "@blockfrost/openapi@npm:0.1.17"
-  checksum: 0482838e638f090e04257029a7433fefc2bf6f6ab6800f55909dae72b603a537cf8eefa1f8e43ea41113b6aa7a3c382f2ccc3c95595f067b6b473ee35e95ecfd
+"@blockfrost/openapi@npm:^0.1.18":
+  version: 0.1.18
+  resolution: "@blockfrost/openapi@npm:0.1.18"
+  checksum: f81c360fc3316c63945bdeba385350cb8227e8659ae5aa533c3625abc786409c87a2ec1a0c8d8558c2a7de4090f36cc763ff91d5adadea9d1758dc0f62c48dce
   languageName: node
   linkType: hard
 
