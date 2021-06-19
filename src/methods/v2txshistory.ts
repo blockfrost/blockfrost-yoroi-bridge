@@ -23,6 +23,7 @@ export const addressesToTxIds = async (
   );
   const result = sortedTxs.slice(0, 49); // last 50 transactions
   //const result = last50Transactions.map(item => item.tx_hash);
+  // TODO: implement cursor
   return result;
 };
 
@@ -37,7 +38,6 @@ export const txIdsToTransactions = async (
           // TODO: Improve by firing these 3 calls concurrently
           const txData = await api.txs(item.tx_hash);
 
-          // TODO: withdrawals:
           const withdrawals: Types.Withdrawal[] = [];
 
           if (txData.withdrawal_count > 0) {
@@ -51,7 +51,6 @@ export const txIdsToTransactions = async (
             });
           }
 
-          // TODO: certificates?!?!?!?!
           const certificates: Types.Certificate[] = [];
           if (txData.delegation_count > 0) {
             const delegationCertificate = await api.txsDelegations(item.tx_hash);
@@ -141,6 +140,19 @@ export const txIdsToTransactions = async (
               certificates.push(reformattedCertificate);
             });
           }
+          // TODO: MIR!!!
+          // if (txData.mir_count > 0) {
+          //   const mirCertificate = await api.txsMir(item.tx_hash);
+          //   poolRetireCertificate.map(certificate => {
+          //     const reformattedCertificate = {
+          //       kind: 'PoolRetirement' as const,
+          //       certIndex: certificate.cert_index,
+          //       epoch: certificate.retiring_epoch,
+          //       poolKeyHash: bDecode(certificate.pool_id), //pool hex (!!!NOT!!! keyhash)
+          //     };
+          //     certificates.push(reformattedCertificate);
+          //   });
+          // }
 
           const blockInfo = await api.blocks(item.block_height);
           const txUtxos = await api.txsUtxos(item.tx_hash);
@@ -249,7 +261,6 @@ export const txIdsToTransactions = async (
     promisesBundle.push(promise);
   });
   const result: Types.txsHistory[] = await Promise.all(promisesBundle);
-  console.log('hmdopice', result);
 
   return result;
 };
@@ -259,7 +270,6 @@ export const v2txshistoryMethod = async (addresses: string[]): Promise<Types.txs
     const addressesFiltered = await getAddresses(addresses);
     const addressesTxs = await addressesToTxIds(addressesFiltered);
     const result = await txIdsToTransactions(addressesTxs);
-    console.log('ABC', result);
     return result;
   } catch (err) {
     console.log(err);
