@@ -4,6 +4,7 @@
     "module": "commonjs",
     "declaration": true,
     "isolatedModules": true,
+    "resolveJsonModule": true,
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,

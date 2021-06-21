@@ -1,5 +1,6 @@
 {
   "name": "@blockfrost/blockfrost-yoroi-bridge",
+  "version": "1.0.0",
   "scripts": {
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
