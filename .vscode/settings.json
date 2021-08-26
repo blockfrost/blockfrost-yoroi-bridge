@@ -1,0 +1,24 @@
+{
+  "cSpell.words": [
+    "addresses",
+    "autoload",
+    "bech",
+    "blockfrost",
+    "emurgo",
+    "fastify",
+    "from",
+    "keyhash",
+    "tailwindcss",
+    "to",
+    "uninstantiated",
+    "utxos",
+    "yoroi"
+  ],
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "eslint.nodePath": ".yarn/sdks",
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}

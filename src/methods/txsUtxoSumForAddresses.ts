@@ -1,0 +1,24 @@
+import BigNumber from 'bignumber.js';
+import { getAddressesBalance } from '../utils/addresses';
+
+export const txsUtxoSumForAddressesMethod = async (
+  addresses: string[],
+): Promise<{ sum: string }> => {
+  try {
+    const addressesResult = await getAddressesBalance(addresses);
+    const sumBig = new BigNumber(0);
+    let result = new BigNumber(0);
+
+    addressesResult.map(item => {
+      if (item.data === 'empty') return;
+      const lovelace = item.data.amount.find(i => i.unit === 'lovelace');
+      if (lovelace) {
+        result = sumBig.plus(lovelace.quantity).plus(result);
+      }
+    });
+    return { sum: result.toString() };
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};
