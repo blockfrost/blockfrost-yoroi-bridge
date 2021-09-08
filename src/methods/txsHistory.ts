@@ -1,3 +1,4 @@
+import { bech32 } from 'bech32';
 import { network } from '../config';
 import { Responses } from '@blockfrost/blockfrost-js';
 import { getApi } from '../utils/blockfrostAPI';
@@ -16,9 +17,9 @@ export const addressesToTxIds = async (
   let fromBlock: string | undefined;
   let toBlock: string | undefined;
 
-  let afterBlockHeight;
-  let afterBlockTxIndex;
-  let untilBlockHeight;
+  let afterBlockHeight: number | undefined | null;
+  let afterBlockTxIndex: number | undefined;
+  let untilBlockHeight: number | undefined | null;
 
   if (typeof afterBlock !== 'undefined') {
     try {
@@ -44,38 +45,88 @@ export const addressesToTxIds = async (
   }
 
   // Treat stake address separately
+  // Note: Support for pool registration and delegation txs/certificates is currently missing
+
   let stakeAddresses = [];
   const stakeAddressesEncoded: string[] = [];
   const allAccountTransactions: Responses['address_transactions_content'] = [];
   // find any stake addresses e0 testnet, e1 mainnet
   if (network === 'mainnet') {
-    stakeAddresses = input.filter(i => i.startsWith('e1'));
+    stakeAddresses = input.filter(i => i.startsWith('e1') || i.startsWith('stake'));
     if (stakeAddresses.length !== 0) {
       stakeAddresses.map(stakeAddress => {
-        const encoded = bEncodeStakeAddress(stakeAddress);
+        if (stakeAddress.startsWith('stake')) {
+          const bech32Info = bech32.decode(stakeAddress, 1000);
+          if (bech32Info.prefix === 'stake') {
+            // check if it's not already converted into bech32
+            stakeAddressesEncoded.push(stakeAddress);
+          }
+        } else {
+          const encoded = bEncodeStakeAddress(stakeAddress);
+          stakeAddressesEncoded.push(encoded);
+        }
         input.splice(input.indexOf(stakeAddress), 1);
-        stakeAddressesEncoded.push(encoded);
       });
     }
   } else {
-    stakeAddresses = input.filter(i => i.startsWith('e0'));
+    stakeAddresses = input.filter(i => i.startsWith('e0') || i.startsWith('stake_test'));
 
     if (stakeAddresses.length !== 0) {
       stakeAddresses.map(stakeAddress => {
-        const encoded = bEncodeStakeAddress(stakeAddress);
+        if (stakeAddress.startsWith('stake_test')) {
+          const bech32Info = bech32.decode(stakeAddress, 1000);
+          if (bech32Info.prefix === 'stake_test') {
+            // check if it's not already converted into bech32
+            stakeAddressesEncoded.push(stakeAddress);
+          }
+        } else {
+          const encoded = bEncodeStakeAddress(stakeAddress);
+          stakeAddressesEncoded.push(encoded);
+        }
         input.splice(input.indexOf(stakeAddress), 1);
-        stakeAddressesEncoded.push(encoded);
       });
     }
   }
 
-  const hashes: string[] = [];
-  // registration, deregistration, delegation, pool registration, pool retirement, MIR (reserve and treasury),
-  // https://github.com/Emurgo/yoroi-graphql-migration-backend/blob/master/src/Transactions/certificates.ts
-
-  // (de)registrations
+  // resolve all stake addresses (accounts) to addresses
+  const inputAccountsAddresses: string[] = [];
 
   if (stakeAddressesEncoded.length !== 0) {
+    const hashes: string[] = [];
+
+    // USE THIS TO COVER ALL ADDRESSES OF A STAKE ADDRESS: WARNING, IT DOES NOT COVER MIRs
+    // const promisesBundleAccountsAddresses: Promise<Responses['account_addresses_content']>[] = [];
+
+    // stakeAddressesEncoded.map(item => {
+    //   const promise = api.accountsAddressesAll(item);
+    //   promisesBundleAccountsAddresses.push(promise);
+    // });
+
+    // const accountsAddresses = (
+    //   await Promise.all(
+    //     promisesBundleAccountsAddresses.map(p =>
+    //       p
+    //         .then(data => {
+    //           return data;
+    //         })
+    //         .catch(err => {
+    //           if (err.status_code === 404) {
+    //             return;
+    //           }
+    //           console.log(err);
+    //         }),
+    //     ),
+    //   )
+    // ).flat();
+
+    // accountsAddresses.forEach(item => {
+    //   if (typeof item !== 'undefined') {
+    //     inputAccountsAddresses.push(item.address);
+    //   }
+    // });
+
+    // add things not covered by addresses (MIRs)
+
     const promisesBundleAccountsRegistrations: Promise<
       Responses['account_registration_content']
     >[] = [];
@@ -126,7 +177,6 @@ export const addressesToTxIds = async (
       )
     ).flat();
 
-    // MIRs
     const promisesBundleAccountsMirs: Promise<Responses['account_mir_content']>[] = [];
     stakeAddressesEncoded.map(item => {
       const promise = api.accountsMirsAll(item);
@@ -150,24 +200,55 @@ export const addressesToTxIds = async (
       )
     ).flat();
 
-    registrationTransactions.forEach(item => {
-      if (typeof item !== 'undefined') {
-        hashes.push(item.tx_hash);
-      }
+    const promisesBundleAccountsWithdrawal: Promise<Responses['account_withdrawal_content']>[] = [];
+    stakeAddressesEncoded.map(item => {
+      const promise = api.accountsWithdrawalsAll(item);
+      promisesBundleAccountsWithdrawal.push(promise);
     });
-    delegationTransactions.forEach(item => {
-      if (typeof item !== 'undefined') {
-        hashes.push(item.tx_hash);
-      }
-    });
+
+    const withdrawalTransactions = (
+      await Promise.all(
+        promisesBundleAccountsWithdrawal.map(p =>
+          p
+            .then(data => {
+              return data;
+            })
+            .catch(err => {
+              if (err.status_code === 404) {
+                return;
+              }
+              console.log(err);
+            }),
+        ),
+      )
+    ).flat();
+
     mirsTransactions.forEach(item => {
       if (typeof item !== 'undefined') {
         hashes.push(item.tx_hash);
       }
     });
 
+    registrationTransactions.forEach(item => {
+      if (typeof item !== 'undefined') {
+        hashes.push(item.tx_hash);
+      }
+    });
+
+    delegationTransactions.forEach(item => {
+      if (typeof item !== 'undefined') {
+        hashes.push(item.tx_hash);
+      }
+    });
+
+    withdrawalTransactions.forEach(item => {
+      if (typeof item !== 'undefined') {
+        hashes.push(item.tx_hash);
+      }
+    });
+
     const promisesHashesBundle: Promise<Responses['tx_content']>[] = [];
-    input.map(item => {
+    hashes.map(item => {
       const promise = api.txs(item);
       promisesHashesBundle.push(promise);
     });
@@ -187,19 +268,24 @@ export const addressesToTxIds = async (
         ),
       )
     ).flat();
+
     allAccountTransactionsRaw.map(item => {
-      async () => {
+      (async () => {
         if (typeof item !== 'undefined') {
           if (typeof afterBlock !== 'undefined') {
             // afterBlock is inclusive (>=)
-            if (item.block_height >= Number(afterBlock)) {
-              if (typeof afterTx !== 'undefined') {
-                const afterBlockTxIndex = (await api.txs(afterTx)).index;
-                // afterBlockTx is not inclusive (>)
-                if (item.index > afterBlockTxIndex) {
-                  if (typeof untilBlock !== 'undefined') {
-                    const untilBlockHeight = (await api.blocks(untilBlock)).height;
-
+            if (
+              typeof afterBlockHeight !== 'undefined' &&
+              afterBlockHeight !== null &&
+              item.block_height >= afterBlockHeight
+            ) {
+              if (typeof afterTx !== 'undefined' && typeof afterBlockTxIndex !== 'undefined') {
+                // afterBlockTxIndex is not inclusive (>) but we have to check it only if it's in the same block
+                if (
+                  item.block_height > afterBlockHeight ||
+                  (item.block_height === afterBlockHeight && item.index > afterBlockTxIndex)
+                ) {
+                  if (typeof untilBlockHeight !== 'undefined') {
                     if (untilBlockHeight === null || item.block_height <= untilBlockHeight) {
                       // all good
                     } else {
@@ -225,7 +311,7 @@ export const addressesToTxIds = async (
 
           allAccountTransactions.push(reformatedTx);
         }
-      };
+      })();
     });
   }
 
@@ -244,7 +330,11 @@ export const addressesToTxIds = async (
   }
 
   const promisesBundle: Promise<Responses['address_transactions_content']>[] = [];
-  input.map(item => {
+
+  // addresses from input and resolved from stake addresses
+  const allAddresses = [...input, ...inputAccountsAddresses];
+
+  allAddresses.map(item => {
     // get 50 transactions from each address (to order them at the end)
     const promise = api.addressesTransactions(
       item,
@@ -256,6 +346,7 @@ export const addressesToTxIds = async (
   const allAddressTransactions = (await Promise.all(promisesBundle)).flat();
 
   // remove duplicates
+
   const uniqueAccountTransactions = allAccountTransactions.filter(
     (item, index, self) => index === self.findIndex(t => t.tx_hash === item.tx_hash),
   );
@@ -264,10 +355,15 @@ export const addressesToTxIds = async (
     (item, index, self) => index === self.findIndex(t => t.tx_hash === item.tx_hash),
   );
 
-  const allTransactions = [...uniqueAccountTransactions, ...uniqueAddressTransactions];
+  // remove possible duplicates (there should be none)
+  const allTransactions = [...uniqueAddressTransactions, ...uniqueAccountTransactions];
+
+  const uniqueAllTransactions = allTransactions.filter(
+    (item, index, self) => index === self.findIndex(t => t.tx_hash === item.tx_hash),
+  );
 
   // sort by block height and by index
-  const sortedTxs = allTransactions.sort(
+  const sortedTxs = uniqueAllTransactions.sort(
     (first, second) => first.block_height - second.block_height || first.tx_index - second.tx_index,
   );
   const result = sortedTxs.slice(0, 50); // first 50 transactions
@@ -428,7 +524,6 @@ export const txIdsToTransactions = async (
                   rewards: { [bDecode(certificate.address)]: certificate.amount },
                 });
               } else {
-                //aggregatedRewards.rewards[certificate.address] = certificate.amount;
                 foundAggregatedCertificate.rewards = {
                   ...foundAggregatedCertificate.rewards,
                   [bDecode(certificate.address)]: certificate.amount,

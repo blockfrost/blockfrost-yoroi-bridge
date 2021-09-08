@@ -793,11 +793,15 @@ describe('/api/v2/txs/history', () => {
     page.removeAllListeners('request');
   });
 
-  it('Return data with address with witnesses', async () => {
+  it('Return data for reward addresses with registration certificates', async () => {
     await page.setRequestInterception(true);
 
     const addresses = ['e19842145a1693dfbf809963c7a605b463dce5ca6b66820341a443501e'];
-    const hashForUntilBlock = 'd6f6cd7101ce4fa80f7d7fe78745d2ca404705f58247320bc2cef975e7574939';
+    const hashForUntilBlock = '7e75460322424b2fa77b4550090977c51d3342668ad688186c2443f292c2932b';
+    const after = {
+      tx: 'a235a7bb9b92cd04bd3c445f5659c2f1d55b3c71b51a0b2718a06ffe56095c66',
+      block: '55ee284def9e92a08246752a9e6c2d4143b94e86dc32b06eeb4db042a415a6f9',
+    };
 
     page.on('request', interceptedRequest => {
       const data = {
@@ -807,6 +811,8 @@ describe('/api/v2/txs/history', () => {
           JSON.stringify(addresses) +
           ',"untilBlock":' +
           JSON.stringify(hashForUntilBlock) +
+          ',"after":' +
+          JSON.stringify(after) +
           ' }',
         headers: {
           ...interceptedRequest.headers(),
@@ -820,16 +826,98 @@ describe('/api/v2/txs/history', () => {
     const response = await page.goto(apiUrl);
     const responseJson = await response.json();
 
-    expect(responseJson).toBeArray;
+    expect(responseJson).toBeArrayOfSize(1);
+    expect(responseJson[0].hash).toEqual(
+      'e130a413db6f78b585e6a674e4e0241f770d8fcf82dcaa79922ee265b8a5145d',
+    );
+    expect(responseJson[0].certificates[0].kind).toEqual('StakeRegistration');
 
     page.removeAllListeners('request');
   });
 
-  it('Return data with address with witnesses 2', async () => {
+  // DEPRECATED
+  // it('Return data for reward addresses with witnesses', async () => {
+  //   await page.setRequestInterception(true);
+
+  //   const addresses = ['e19842145a1693dfbf809963c7a605b463dce5ca6b66820341a443501e'];
+  //   const hashForUntilBlock = 'd6f6cd7101ce4fa80f7d7fe78745d2ca404705f58247320bc2cef975e7574939';
+
+  //   page.on('request', interceptedRequest => {
+  //     const data = {
+  //       method: 'POST',
+  //       postData:
+  //         '{"addresses":' +
+  //         JSON.stringify(addresses) +
+  //         ',"untilBlock":' +
+  //         JSON.stringify(hashForUntilBlock) +
+  //         ' }',
+  //       headers: {
+  //         ...interceptedRequest.headers(),
+  //         'Content-Type': 'application/json',
+  //       },
+  //     };
+  //     // Request modified... finish sending!
+  //     interceptedRequest.continue(data);
+  //   });
+
+  //   const response = await page.goto(apiUrl);
+  //   const responseJson = await response.json();
+
+  //   expect(responseJson).toBeArray();
+  //   expect(responseJson[10].hash).toEqual(
+  //     'f6ee8bc837e3a1bc187da5d28ba67acaf10a9336ff63a243abb879c47b855132',
+  //   );
+
+  //   page.removeAllListeners('request');
+  // });
+
+  // it('Return data for reward addresses with witnesses 2', async () => {
+  //   await page.setRequestInterception(true);
+
+  //   const addresses = ['stake1uxvyy9z6z6fal0uqn93u0fs9k33aeew2ddngyq6p53p4q8smzq4sz'];
+  //   const hashForUntilBlock = 'd6f6cd7101ce4fa80f7d7fe78745d2ca404705f58247320bc2cef975e7574939';
+
+  //   page.on('request', interceptedRequest => {
+  //     const data = {
+  //       method: 'POST',
+  //       postData:
+  //         '{"addresses":' +
+  //         JSON.stringify(addresses) +
+  //         ',"untilBlock":' +
+  //         JSON.stringify(hashForUntilBlock) +
+  //         ' }',
+  //       headers: {
+  //         ...interceptedRequest.headers(),
+  //         'Content-Type': 'application/json',
+  //       },
+  //     };
+  //     // Request modified... finish sending!
+  //     interceptedRequest.continue(data);
+  //   });
+
+  //   const response = await page.goto(apiUrl);
+  //   const responseJson = await response.json();
+
+  //   expect(responseJson).toBeArray();
+  //   expect(responseJson[10].hash).toEqual(
+  //     'f6ee8bc837e3a1bc187da5d28ba67acaf10a9336ff63a243abb879c47b855132',
+  //   );
+
+  //   page.removeAllListeners('request');
+  // });
+
+  it('Return data for reward addresses with delegation certificates', async () => {
     await page.setRequestInterception(true);
 
-    const addresses = ['stake1uxvyy9z6z6fal0uqn93u0fs9k33aeew2ddngyq6p53p4q8smzq4sz'];
-    const hashForUntilBlock = 'd6f6cd7101ce4fa80f7d7fe78745d2ca404705f58247320bc2cef975e7574939';
+    const addresses = [
+      'e1c3892366f174a76af9252f78368f5747d3155ab3568ea3b6bf40b01e',
+      'e1c3892366f174a76af9252f78368f5747d3055ab3568ea3b6bf40b01e',
+    ];
+    const hashForUntilBlock = 'fa0a6a6c3bea2a9dfae92ca2dfe89ec608ccf22f259e26d1e510503d74e7d3a0';
+    const after = {
+      tx: '717ee5005ec1888b2b67195047d5d5d08a278fa52201d33686010c834cde24bd',
+      block: '094ae9802b7e0a8cee97e88cc14a3029f8788d9cb9568ae32337e6ba2c0c1a5b',
+    };
 
     page.on('request', interceptedRequest => {
       const data = {
@@ -839,6 +927,8 @@ describe('/api/v2/txs/history', () => {
           JSON.stringify(addresses) +
           ',"untilBlock":' +
           JSON.stringify(hashForUntilBlock) +
+          ',"after":' +
+          JSON.stringify(after) +
           ' }',
         headers: {
           ...interceptedRequest.headers(),
@@ -852,7 +942,193 @@ describe('/api/v2/txs/history', () => {
     const response = await page.goto(apiUrl);
     const responseJson = await response.json();
 
-    expect(responseJson).toBeArray;
+    expect(responseJson).toBeArrayOfSize(1);
+    expect(responseJson[0].hash).toEqual(
+      'b84471f9dda4e5381f8986b0db8cfe9ebaf88472c68076af326d88b46ae915e7',
+    );
+    expect(responseJson[0].certificates[0].kind).toEqual('StakeDelegation');
+
+    page.removeAllListeners('request');
+  });
+
+  it('Return data for reward addresses with deregistration certificates', async () => {
+    await page.setRequestInterception(true);
+
+    const addresses = ['e1aa377459e2cc1f7d81752f5a13e0eb1a4f85deebe8bb14bb1e157487'];
+    const hashForUntilBlock = '8fe8cafa28015c57225dda10d780c61479679124674f3db6ae6572b38b8feee1';
+    const after = {
+      tx: '9f93abce0b293b01f62ce9c8b0257a3da8aef27de164a609c32c92dc0a04f58e',
+      block: '3d85a2fca53596e3b91d031d1d675b64c3b85db235ead56e04e951debd1833ec',
+    };
+
+    page.on('request', interceptedRequest => {
+      const data = {
+        method: 'POST',
+        postData:
+          '{"addresses":' +
+          JSON.stringify(addresses) +
+          ',"untilBlock":' +
+          JSON.stringify(hashForUntilBlock) +
+          ',"after":' +
+          JSON.stringify(after) +
+          ' }',
+        headers: {
+          ...interceptedRequest.headers(),
+          'Content-Type': 'application/json',
+        },
+      };
+      // Request modified... finish sending!
+      interceptedRequest.continue(data);
+    });
+
+    const response = await page.goto(apiUrl);
+    const responseJson = await response.json();
+
+    expect(responseJson).toBeArrayOfSize(1);
+    expect(responseJson[0].hash).toEqual(
+      'c7eecab99bb1879388c133baadb78f89268beb1be3907a71b5749009a8bc4206',
+    );
+    expect(responseJson[0].certificates[0].kind).toEqual('StakeDeregistration');
+
+    page.removeAllListeners('request');
+  });
+
+  it('Return data for tx with single metadata', async () => {
+    await page.setRequestInterception(true);
+
+    const addresses = [
+      bech32.encode(
+        'addr_vkh',
+        bech32.toWords(
+          Buffer.from('69f6f57453031d04bd71a08cd3f31e7d61bfa939037f0e547de850e3', 'hex'),
+        ),
+      ),
+    ];
+
+    const hashForUntilBlock = 'd9038b728b997566b4b5fd2686ed2268505f50c8faa1292837fede6ef42cdab5';
+    const after = {
+      tx: '0e06078128b5126c77cf6ffe68eab7d0d51423cba84f24d34c433752ff0c843b',
+      block: '7b483248865efe366af230a68952340ec2a5868433a3323abfff433699997175',
+    };
+
+    page.on('request', interceptedRequest => {
+      const data = {
+        method: 'POST',
+        postData:
+          '{"addresses":' +
+          JSON.stringify(addresses) +
+          ',"untilBlock":' +
+          JSON.stringify(hashForUntilBlock) +
+          ',"after":' +
+          JSON.stringify(after) +
+          ' }',
+        headers: {
+          ...interceptedRequest.headers(),
+          'Content-Type': 'application/json',
+        },
+      };
+      // Request modified... finish sending!
+      interceptedRequest.continue(data);
+    });
+
+    const response = await page.goto(apiUrl);
+    const responseJson = await response.json();
+
+    expect(responseJson).toBeArrayOfSize(1);
+    expect(responseJson[0].hash).toEqual(
+      '4237501da3cfdd53ade91e8911e764bd0699d88fd43b12f44a1f459b89bc91be',
+    );
+    expect(responseJson[0].metadata).toEqual('a100a16b436f6d62696e6174696f6e8601010101010c');
+
+    page.removeAllListeners('request');
+  });
+
+  it('Return data for tx with multiple metadata', async () => {
+    await page.setRequestInterception(true);
+
+    const addresses = [
+      bech32.encode(
+        'addr_vkh',
+        bech32.toWords(
+          Buffer.from('89aa7bae5ad34eb20ad28a9ade1ab539fbb8e957bb6645e47434a537', 'hex'),
+        ),
+      ),
+    ];
+
+    const hashForUntilBlock = '159a22318dd76531fb34fa0ddf33198755a444b6452ddbabfb651ef2148294f8';
+    const after = {
+      tx: 'e7d3a4fdbed209623fb858e206176511c30f7880dc89d3801d1b33cacdfc3e1c',
+      block: 'acf5ead409a27d4795f8a653a3ee6ba1550a7ea09331751a7aba3ba2fe3c47f0',
+    };
+
+    page.on('request', interceptedRequest => {
+      const data = {
+        method: 'POST',
+        postData:
+          '{"addresses":' +
+          JSON.stringify(addresses) +
+          ',"untilBlock":' +
+          JSON.stringify(hashForUntilBlock) +
+          ',"after":' +
+          JSON.stringify(after) +
+          ' }',
+        headers: {
+          ...interceptedRequest.headers(),
+          'Content-Type': 'application/json',
+        },
+      };
+      // Request modified... finish sending!
+      interceptedRequest.continue(data);
+    });
+
+    const response = await page.goto(apiUrl);
+    const responseJson = await response.json();
+
+    expect(responseJson).toBeArrayOfSize(1);
+    expect(responseJson[0].hash).toEqual(
+      'f910021138e553c65b96cf3e4647927fcd9f634e06544251f83cffb1891876e8',
+    );
+    expect(responseJson[0].metadata).toEqual(
+      'a200a16e4c615f52657073697374616e634568576173206865726501a56743686f6963657384a36b43616e6469646174654964782461616139353033612d366663352d343665612d396161302d62346339306633363161346368566f746552616e6b016a566f746557656967687401a36b43616e6469646174654964782438643634396331322d393336652d343662652d623635612d63313766333066353935373468566f746552616e6b026a566f746557656967687401a36b43616e6469646174654964782438316365376638652d393463332d343833352d393166632d32313436643531666131666368566f746552616e6b006a566f746557656967687400a36b43616e6469646174654964782434303735343061612d353862352d343063612d623438342d66343030343065623239393068566f746552616e6b036a566f746557656967687401694e6574776f726b49646f5468655265616c4164616d4465616e6a4f626a656374547970656a566f746542616c6c6f746a50726f706f73616c4964782438303036346332382d316230332d346631632d616266302d63613863356139386435623967566f7465724964782464393930613165382d636239302d346635392d623563662d613862353963396261386165',
+    );
+
+    page.removeAllListeners('request');
+  });
+
+  it('Return data for stake address with treasury MIR', async () => {
+    await page.setRequestInterception(true);
+
+    const addresses = ['stake1uypy44wqjznc5w9ns9gsguz4ta83jekrg9d0wupa7j3zsacwvq5ex'];
+    const hashForUntilBlock = 'b687d2012739687a3543c1ec4b47b899b5519c94299cd6537174467707b979ad';
+    const after = {
+      tx: '0e06078128b5126c77cf6ffe68eab7d0d51423cba84f24d34c433752ff0c843b',
+      block: '7b483248865efe366af230a68952340ec2a5868433a3323abfff433699997175',
+    };
+
+    page.on('request', interceptedRequest => {
+      const data = {
+        method: 'POST',
+        postData:
+          '{"addresses":' +
+          JSON.stringify(addresses) +
+          ',"untilBlock":' +
+          JSON.stringify(hashForUntilBlock) +
+          ',"after":' +
+          JSON.stringify(after) +
+          ' }',
+        headers: {
+          ...interceptedRequest.headers(),
+          'Content-Type': 'application/json',
+        },
+      };
+      // Request modified... finish sending!
+      interceptedRequest.continue(data);
+    });
+
+    const response = await page.goto(apiUrl);
+    const responseJson = await response.json();
+
+    expect(responseJson).toBeArrayOfSize(2);
 
     page.removeAllListeners('request');
   });
