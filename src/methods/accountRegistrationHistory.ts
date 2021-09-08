@@ -113,7 +113,10 @@ export const accountRegistrationHistoryMethod = async (
     const details = await getRegistrationsTxsDetails(stakeAddressesWithRegistrations);
 
     details.map(item => {
-      result[item.stake_address] = item.data;
+      if (typeof result[item.stake_address] === 'undefined') {
+        result[item.stake_address] = [];
+      }
+      result[item.stake_address].push(item.data);
     });
     return result;
   } catch (err) {

@@ -10,6 +10,7 @@ rec {
 
     name = "blockfrost-yoroi-bridge";
 
+    PUPPETEER_SKIP_DOWNLOAD = "true";
     HOME = "/build";
 
     buildPhase = ''

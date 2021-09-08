@@ -21,14 +21,26 @@ export const addressesToTxIds = async (
   let untilBlockHeight;
 
   if (typeof afterBlock !== 'undefined') {
-    afterBlockHeight = (await api.blocks(afterBlock)).height;
+    try {
+      afterBlockHeight = (await api.blocks(afterBlock)).height;
+    } catch (err) {
+      throw new Error('REFERENCE_BLOCK_MISMATCH');
+    }
 
     if (typeof afterTx !== 'undefined') {
-      afterBlockTxIndex = (await api.txs(afterTx)).index;
+      try {
+        afterBlockTxIndex = (await api.txs(afterTx)).index;
+      } catch (err) {
+        throw new Error('REFERENCE_TX_NOT_FOUND');
+      }
     }
   }
   if (typeof untilBlock !== 'undefined') {
-    untilBlockHeight = (await api.blocks(untilBlock)).height;
+    try {
+      untilBlockHeight = (await api.blocks(untilBlock)).height;
+    } catch (err) {
+      throw new Error('REFERENCE_BEST_BLOCK_MISMATCH');
+    }
   }
 
   // Treat stake address separately
@@ -175,16 +187,16 @@ export const addressesToTxIds = async (
         ),
       )
     ).flat();
-
     allAccountTransactionsRaw.map(item => {
       async () => {
         if (typeof item !== 'undefined') {
           if (typeof afterBlock !== 'undefined') {
+            // afterBlock is inclusive (>=)
             if (item.block_height >= Number(afterBlock)) {
               if (typeof afterTx !== 'undefined') {
                 const afterBlockTxIndex = (await api.txs(afterTx)).index;
-
-                if (item.index >= afterBlockTxIndex) {
+                // afterBlockTx is not inclusive (>)
+                if (item.index > afterBlockTxIndex) {
                   if (typeof untilBlock !== 'undefined') {
                     const untilBlockHeight = (await api.blocks(untilBlock)).height;
 
@@ -219,8 +231,9 @@ export const addressesToTxIds = async (
 
   // we need to reformat fromBlock to match our API
   if (typeof afterBlock !== 'undefined') {
-    if (typeof afterTx !== 'undefined') {
-      fromBlock = `${afterBlockHeight}:${afterBlockTxIndex}`;
+    if (typeof afterTx !== 'undefined' && typeof afterBlockTxIndex !== 'undefined') {
+      // +1 since afterBlockTxIndex is not inclusive (>)
+      fromBlock = `${afterBlockHeight}:${afterBlockTxIndex + 1}`;
     } else {
       fromBlock = `${afterBlockHeight}`;
     }
@@ -390,40 +403,41 @@ export const txIdsToTransactions = async (
 
           if (txData.mir_cert_count > 0) {
             const mirCertificates = await api.txsMirs(item.tx_hash);
-            const aggregatedCertificates: Types.MoveInstantaneousRewardsCert[][] = [];
+            const aggregatedCertificates: Types.MoveInstantaneousRewardsCert[] = [];
 
             mirCertificates.map(certificate => {
               let potSource: 0 | 1 = 0;
 
-              if (certificate.pot === 'treasury') {
+              if (certificate.pot === 'reserve') {
+                potSource = 0;
+              } else if (certificate.pot === 'treasury') {
                 potSource = 1;
               }
 
-              let aggregatedRewards: Types.Dictionary<string>;
+              //let aggregatedRewards: Types.Dictionary<string>;
 
-              if (aggregatedCertificates[potSource][certificate.cert_index]) {
-                aggregatedRewards = {
-                  ...aggregatedCertificates[potSource][certificate.cert_index].rewards,
-                  [certificate.address]: certificate.amount,
-                };
+              const foundAggregatedCertificate = aggregatedCertificates.find(
+                i => i.certIndex === certificate.cert_index && i.pot === potSource,
+              );
+
+              if (!foundAggregatedCertificate) {
+                aggregatedCertificates.push({
+                  kind: 'MoveInstantaneousRewardsCert' as const,
+                  certIndex: certificate.cert_index,
+                  pot: potSource,
+                  rewards: { [bDecode(certificate.address)]: certificate.amount },
+                });
               } else {
-                aggregatedRewards = { [certificate.address]: certificate.amount };
+                //aggregatedRewards.rewards[certificate.address] = certificate.amount;
+                foundAggregatedCertificate.rewards = {
+                  ...foundAggregatedCertificate.rewards,
+                  [bDecode(certificate.address)]: certificate.amount,
+                };
               }
-
-              aggregatedCertificates[potSource][certificate.cert_index] = {
-                kind: 'MoveInstantaneousRewardsCert' as const,
-                certIndex: certificate.cert_index,
-                pot: potSource,
-                rewards: aggregatedRewards,
-                // dictionary of stake addresses to their reward amounts in lovelace
-              };
             });
 
-            // we need to aggregate the certificates (group by pot&index)
             aggregatedCertificates.map(certificatePots => {
-              certificatePots.map(certificatePotsAndIndexes => {
-                certificates.push(certificatePotsAndIndexes);
-              });
+              certificates.push(certificatePots);
             });
           }
 
@@ -506,13 +520,18 @@ export const txIdsToTransactions = async (
           // time conversion
           const ISOtime = new Date(blockInfo.time * 1000).toISOString();
 
+          // sort all certificates by indexes
+          const sortedCertificates = certificates.sort(
+            (first, second) => first.certIndex - second.certIndex,
+          );
+
           const result = {
             hash: item.tx_hash,
             fee: txData.fees,
             metadata: txMetadata,
             type: blockInfo.block_vrf === null ? ('byron' as const) : ('shelley' as const),
             withdrawals: withdrawals,
-            certificates: certificates,
+            certificates: sortedCertificates,
             tx_ordinal: txData.index,
             tx_state: 'Successful' as const, // always successful https://github.com/Emurgo/yoroi-graphql-migration-backend/blob/master/src/index.ts#L165
             last_update: ISOtime, // same as time

@@ -22,8 +22,7 @@ async function txsHistory(fastify: FastifyInstance) {
           const result = await txshistoryMethod(uniqueAddresses, afterBlock, afterTx, untilBlock);
           res.send(result);
         } catch (err) {
-          console.log(err);
-          throw new Error('Error');
+          return err;
         }
       } else {
         throw new Error('error, no addresses.');

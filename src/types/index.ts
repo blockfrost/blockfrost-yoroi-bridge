@@ -79,7 +79,7 @@ export interface AccountRegistrationHistoryYoroi {
     txIndex: number;
     certIndex: number;
     certType: RegistrationState;
-  };
+  }[];
 }
 
 type RegistrationState = 'StakeRegistration' | 'StakeDeregistration';

@@ -103,16 +103,12 @@ export const getHistory = async (
                           operator: pool.pool,
                           // set default values to pool.poolGeneral.* as there's a null in openapi definition
                           // but it should never happen (as we're checking the whole poolGeneral for null values)
-                          vrfKeyHash: pool.poolGeneral ? pool.poolGeneral.vrf_key : '',
-                          pledge: pool.poolGeneral ? pool.poolGeneral.declared_pledge : '0',
-                          cost: pool.poolGeneral ? pool.poolGeneral.fixed_cost : '0',
-                          margin: pool.poolGeneral ? pool.poolGeneral.margin_cost : 0,
-                          rewardAccount: pool.poolGeneral
-                            ? bDecode(pool.poolGeneral.reward_account)
-                            : '',
-                          poolOwners: pool.poolGeneral
-                            ? bDecodeMultipleOwners(pool.poolGeneral.owners)
-                            : [],
+                          vrfKeyHash: tx.vrf_key,
+                          pledge: tx.pledge,
+                          cost: tx.fixed_cost,
+                          margin: tx.margin_cost,
+                          rewardAccount: bDecode(tx.reward_account),
+                          poolOwners: bDecodeMultipleOwners(tx.owners),
                           relays: relays,
                           poolMetadata: {
                             url: tx.metadata ? tx.metadata.url || '' : '',
@@ -220,7 +216,11 @@ export const poolInfoMethod = async (pools: string[]): Promise<Types.PoolInfoYor
         }
 
         item.poolHistory.sort(function compare(first, second) {
-          return second.epoch - first.epoch;
+          return (
+            first.epoch - second.epoch ||
+            first.slot - second.slot ||
+            first.cert_ordinal - second.cert_ordinal
+          );
         });
         result.push({ [item.pool]: { info: info, history: item.poolHistory } });
       } else {

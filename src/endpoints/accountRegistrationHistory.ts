@@ -6,7 +6,7 @@ import { bech32 } from 'bech32';
 
 async function accountRegistrationHistory(fastify: FastifyInstance) {
   fastify.route({
-    url: '/api/account/registration/history',
+    url: '/api/account/registrationHistory',
     method: 'POST',
     handler: async (req: FastifyRequest<Types.ReqAccounts>, res) => {
       if (req.body && req.body.addresses) {

@@ -1,6 +1,6 @@
 import { getApiUrl } from '../utils';
 
-describe('/poolInfo', () => {
+describe('/importerHealthCheck', () => {
   it('returns', async () => {
     const apiUrl = getApiUrl('/api/v2/importerhealthcheck');
     const response = await page.goto(apiUrl);

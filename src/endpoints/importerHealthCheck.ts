@@ -7,7 +7,6 @@ async function importerHealthCheck(fastify: FastifyInstance) {
     method: 'GET',
     handler: async (_req, res) => {
       const nodeStatus = await api.health();
-      console.log(nodeStatus.is_healthy);
       if (nodeStatus.is_healthy) {
         res.send({ code: 200, message: 'Importer is OK' });
       } else {
