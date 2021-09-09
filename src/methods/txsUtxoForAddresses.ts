@@ -29,7 +29,7 @@ export const txsUtxoForAddressesGetUtxos = async (
           result.push({ address: p.address, data });
         })
         .catch(() => {
-          throw Error('a');
+          throw new Error('Error');
         }),
     ),
   );
