@@ -28,8 +28,9 @@ export const txsUtxoForAddressesGetUtxos = async (
         .then(data => {
           result.push({ address: p.address, data });
         })
-        .catch(() => {
-          throw new Error('Error');
+        .catch(err => {
+          console.log(err);
+          throw new Error('Error - invalid or malformed address');
         }),
     ),
   );

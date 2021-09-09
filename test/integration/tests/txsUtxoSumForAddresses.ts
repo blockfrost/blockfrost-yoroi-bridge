@@ -1,7 +1,7 @@
 import { getApiUrl } from '../utils';
 
-describe('/api/txs/txsUtxoSumForAddresses', () => {
-  const apiUrl = getApiUrl('/api/txs/txsUtxoSumForAddresses');
+describe('/api/txs/utxoSumForAddresses', () => {
+  const apiUrl = getApiUrl('/api/txs/utxoSumForAddresses');
 
   it('returns data on addresses', async () => {
     await page.setRequestInterception(true);
